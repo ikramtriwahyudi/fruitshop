@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruitmarket/components/logbutton.dart';
 import 'package:fruitmarket/components/textfield.dart';
 import 'package:fruitmarket/components/textfield_password.dart';
 
@@ -56,10 +57,21 @@ class _LoginState extends State<Login> {
           Customtextfield(
             placeholder: 'username',
           ),
-          Customtextfield(
-            placeholder: 'password',
+          const SizedBox(
+            height: 20,
           ),
-          Customtextfieldpassword(placeholder: "password")
+          Container(
+            margin: const EdgeInsets.only(right: 290),
+            child: const Text(
+              "Password",
+              style: TextStyle(fontSize: 20, color: Colors.black54),
+            ),
+          ),
+          Customtextfieldpassword(placeholder: "password"),
+          SizedBox(
+            height: 20,
+          ),
+          Logbutton(placeholder: "Sign In"),
         ],
       )),
     );

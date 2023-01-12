@@ -62,7 +62,7 @@ class _SplashState extends State<Splash> {
               "Get Started",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-          )
+          ),
         ],
       ),
     );
