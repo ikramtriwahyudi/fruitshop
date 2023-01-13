@@ -85,10 +85,11 @@ class _LoginState extends State<Login> {
             color: const Color(0xff82CD47),
             onPressed: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Homepage(),
-                  ));
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Homepage(),
+                ),
+              );
             },
             child: const Text(
               "Sign In",
