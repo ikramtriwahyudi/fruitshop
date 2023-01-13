@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:fruitmarket/components/textfield.dart';
 import 'package:fruitmarket/components/textfield_password.dart';
+import 'package:fruitmarket/home.dart';
 import 'package:fruitmarket/signup.dart';
 import 'package:fruitmarket/splash.dart';
 
@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Splash(),
+                              builder: (context) => const Splash(),
                             ));
                       },
                       child: const Icon(
@@ -83,7 +83,13 @@ class _LoginState extends State<Login> {
             minWidth: 385,
             height: 45,
             color: const Color(0xff82CD47),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Homepage(),
+                  ));
+            },
             child: const Text(
               "Sign In",
               style: TextStyle(

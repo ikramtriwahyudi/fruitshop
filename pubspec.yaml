@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.2.16
   google_fonts: ^3.0.1
+  persistent_bottom_nav_bar: ^5.0.2
+  custom_navigation_bar: ^0.8.2
 
 dev_dependencies:
   flutter_test:
