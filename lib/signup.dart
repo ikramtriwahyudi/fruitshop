@@ -2,35 +2,30 @@ import 'package:flutter/material.dart';
 
 import 'package:fruitmarket/components/textfield.dart';
 import 'package:fruitmarket/components/textfield_password.dart';
-import 'package:fruitmarket/signup.dart';
-import 'package:fruitmarket/splash.dart';
+import 'package:fruitmarket/login.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LoginState extends State<Login> {
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: (Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 60, left: 20),
+            padding: const EdgeInsets.only(top: 40, left: 20, bottom: 10),
             child: Column(
               children: [
                 Row(
                   children: [
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Splash(),
-                            ));
+                        Navigator.pop(context);
                       },
                       child: const Icon(
                         Icons.arrow_back_ios,
@@ -41,7 +36,7 @@ class _LoginState extends State<Login> {
                 ),
                 Image.asset("assets/logo.png"),
                 const Text(
-                  "Sign In",
+                  "Sign Up",
                   style: TextStyle(
                       color: Color(0xff689C36),
                       fontSize: 30,
@@ -49,9 +44,6 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 10,
           ),
           Container(
             margin: const EdgeInsets.only(right: 325),
@@ -61,10 +53,21 @@ class _LoginState extends State<Login> {
             ),
           ),
           Customtextfield(
-            placeholder: 'username',
+            placeholder: "",
           ),
           const SizedBox(
-            height: 20,
+            height: 5,
+          ),
+          Container(
+            margin: const EdgeInsets.only(right: 275),
+            child: const Text(
+              "Enter Email",
+              style: TextStyle(fontSize: 20, color: Colors.black54),
+            ),
+          ),
+          Customtextfield(placeholder: ""),
+          const SizedBox(
+            height: 5,
           ),
           Container(
             margin: const EdgeInsets.only(right: 290),
@@ -73,9 +76,20 @@ class _LoginState extends State<Login> {
               style: TextStyle(fontSize: 20, color: Colors.black54),
             ),
           ),
-          Customtextfieldpassword(placeholder: "password"),
+          Customtextfieldpassword(placeholder: ""),
           const SizedBox(
-            height: 30,
+            height: 5,
+          ),
+          Container(
+            margin: const EdgeInsets.only(right: 215),
+            child: const Text(
+              "Confirm Password",
+              style: TextStyle(fontSize: 20, color: Colors.black54),
+            ),
+          ),
+          Customtextfieldpassword(placeholder: ""),
+          const SizedBox(
+            height: 20,
           ),
           MaterialButton(
             shape:
@@ -85,33 +99,31 @@ class _LoginState extends State<Login> {
             color: const Color(0xff82CD47),
             onPressed: () {},
             child: const Text(
-              "Sign In",
+              "Sign Up",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
           ),
-          const SizedBox(
-            height: 35,
-          ),
+          const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "don't have account?",
+                "Already have an account?",
                 style: TextStyle(fontSize: 18),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.push(
-                      context,
+                      (context),
                       MaterialPageRoute(
-                        builder: (context) => const Signup(),
+                        builder: (context) => Login(),
                       ));
                 },
                 child: const Text(
-                  "Sign Up",
+                  "Sign In",
                   style: TextStyle(color: Color(0xff689C36), fontSize: 18),
                 ),
               ),
