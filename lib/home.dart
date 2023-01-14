@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +11,14 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   List buah = [
+    {'image': 'assets/Rectangle 9.png', "lable": 'fruit'},
+    {'image': 'assets/Rectangle 10.png', "lable": 'Meat'},
+    {'image': 'assets/Rectangle 11.png', "lable": 'Rice'},
+    {'image': 'assets/Rectangle 12.png', "lable": 'Meals'},
+    {'image': 'assets/Rectangle 13.png', "lable": 'Bakery'},
+  ];
+
+  List grid = [
     {'image': 'assets/Rectangle 9.png', "lable": 'fruit'},
     {'image': 'assets/Rectangle 10.png', "lable": 'Meat'},
     {'image': 'assets/Rectangle 11.png', "lable": 'Rice'},
@@ -213,7 +220,8 @@ class _HomepageState extends State<Homepage> {
                                 log('Tekan');
                               },
                               child: Container(
-                                margin: EdgeInsets.symmetric(horizontal: 18),
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 18),
                                 height: 40,
                                 width: 40,
                                 color: Colors.amber,
@@ -239,6 +247,33 @@ class _HomepageState extends State<Homepage> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                Container(
+                  height: 300,
+                  child: GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 2,
+                    children: [
+                      for (int index1 = 0; index1 < grid.length; index1++)
+                        Container(
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "assets/bg2.png",
+                                  scale: 1,
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                    ],
+                  ),
+                )
               ],
             ),
           ),
