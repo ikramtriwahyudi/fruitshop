@@ -19,10 +19,30 @@ class _HomepageState extends State<Homepage> {
   ];
 
   List grid = [
-    {'image': 'assets/apel.png', "lable": 'Apel'},
-    {'image': 'assets/nanas.png', "lable": 'Nanas'},
-    {'image': 'assets/delima.png', "lable": 'Delima'},
-    {'image': 'assets/jeruk.png', "lable": 'Jeruk'},
+    {
+      'image': 'assets/apel.png',
+      "Nama": 'Apel',
+      "Harga": '15.000',
+      "Berat": '1 Kg'
+    },
+    {
+      'image': 'assets/nanas.png',
+      "Nama": 'Nanas',
+      "Harga": '20.000',
+      "Berat": '1 Kg'
+    },
+    {
+      'image': 'assets/delima.png',
+      "Nama": 'Delima',
+      "Harga": '18.000',
+      "Berat": '1 Kg'
+    },
+    {
+      'image': 'assets/jeruk.png',
+      "Nama": 'Jeruk',
+      "Harga": '23.000',
+      "Berat": '1 Kg'
+    },
   ];
 
   @override
@@ -259,23 +279,43 @@ class _HomepageState extends State<Homepage> {
                           padding: const EdgeInsets.only(
                             left: 10,
                           ),
-                          child: Card(
-                            color: Colors.white70,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(grid[index1]['image']),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  grid[index1]['lable'],
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                              ],
+                          child: GestureDetector(
+                            onTap: () {
+                              log("tekan");
+                            },
+                            child: Card(
+                              color: const Color.fromARGB(255, 247, 245, 245),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  // Row(
+                                  //   mainAxisAlignment: MainAxisAlignment.end,
+                                  //   children: [Icon(Icons.favorite)],
+                                  // ),
+                                  Image.asset(grid[index1]['image']),
+                                  // const SizedBox(
+                                  //   height: 10,
+                                  // ),
+                                  Text(
+                                    grid[index1]["Berat"],
+                                    style: const TextStyle(fontSize: 15),
+                                  ),
+                                  Text(
+                                    grid[index1]["Harga"],
+                                    style: const TextStyle(
+                                        color: Color(0xff86C649),
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    grid[index1]["Nama"],
+                                    style: const TextStyle(fontSize: 20),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         )
