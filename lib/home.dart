@@ -19,11 +19,10 @@ class _HomepageState extends State<Homepage> {
   ];
 
   List grid = [
-    {'image': 'assets/Rectangle 9.png', "lable": 'fruit'},
-    {'image': 'assets/Rectangle 10.png', "lable": 'Meat'},
-    {'image': 'assets/Rectangle 11.png', "lable": 'Rice'},
-    {'image': 'assets/Rectangle 12.png', "lable": 'Meals'},
-    {'image': 'assets/Rectangle 13.png', "lable": 'Bakery'},
+    {'image': 'assets/apel.png', "lable": 'Apel'},
+    {'image': 'assets/nanas.png', "lable": 'Nanas'},
+    {'image': 'assets/delima.png', "lable": 'Delima'},
+    {'image': 'assets/jeruk.png', "lable": 'Jeruk'},
   ];
 
   @override
@@ -35,7 +34,7 @@ class _HomepageState extends State<Homepage> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: 80,
-              color: Colors.amber,
+              color: Colors.transparent,
               child: CustomNavigationBar(
                 onTap: (value) {},
                 items: [
@@ -247,26 +246,35 @@ class _HomepageState extends State<Homepage> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
                 Container(
-                  height: 300,
+                  height: 290,
                   child: GridView.count(
-                    shrinkWrap: true,
+                    shrinkWrap: false,
                     crossAxisCount: 2,
-                    crossAxisSpacing: 20,
+                    crossAxisSpacing: 5,
                     mainAxisSpacing: 2,
                     children: [
                       for (int index1 = 0; index1 < grid.length; index1++)
-                        Container(
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10,
+                          ),
                           child: Card(
+                            color: Colors.white70,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Image.asset(
-                                  "assets/bg2.png",
-                                  scale: 1,
-                                )
+                                Image.asset(grid[index1]['image']),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  grid[index1]['lable'],
+                                  style: TextStyle(fontSize: 20),
+                                ),
                               ],
                             ),
                           ),
