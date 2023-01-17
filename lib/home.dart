@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:fruitmarket/deskripsi.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -41,7 +42,7 @@ class _HomepageState extends State<Homepage> {
       'image': 'assets/jeruk.png',
       "Nama": 'Jeruk',
       "Harga": '23.000',
-      "Berat": '1 Kg'
+      "Berat": '1 Kg',
     },
   ];
 
@@ -266,7 +267,7 @@ class _HomepageState extends State<Homepage> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 290,
                   child: GridView.count(
                     shrinkWrap: false,
@@ -281,7 +282,11 @@ class _HomepageState extends State<Homepage> {
                           ),
                           child: GestureDetector(
                             onTap: () {
-                              log("tekan");
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Deskripsi(),
+                                  ));
                             },
                             child: Card(
                               color: const Color.fromARGB(255, 247, 245, 245),
