@@ -44,6 +44,12 @@ class _HomepageState extends State<Homepage> {
       "Harga": '23.000',
       "Berat": '1 Kg',
     },
+    {
+      'image': 'assets/naga.png',
+      "Nama": 'Naga',
+      "Harga": '23.000',
+      "Berat": '1 Kg',
+    },
   ];
 
   @override
@@ -312,7 +318,7 @@ class _HomepageState extends State<Homepage> {
                                     grid[index1]["Harga"],
                                     style: const TextStyle(
                                         color: Color(0xff86C649),
-                                        fontSize: 25,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
