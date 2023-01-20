@@ -44,12 +44,6 @@ class _HomepageState extends State<Homepage> {
       "Harga": '23.000',
       "Berat": '1 Kg',
     },
-    {
-      'image': 'assets/naga.png',
-      "Nama": 'Naga',
-      "Harga": '23.000',
-      "Berat": '1 Kg',
-    },
   ];
 
   @override
@@ -156,7 +150,7 @@ class _HomepageState extends State<Homepage> {
                         padding: const EdgeInsets.only(left: 30, right: 30),
                         child: TextField(
                           decoration: InputDecoration(
-                            labelText: "Search Keyword",
+                            // labelText: "Search Keyword",
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),

@@ -44,19 +44,24 @@ class _DeskripsiState extends State<Deskripsi> {
           ),
           Container(
             decoration: const BoxDecoration(
-                color: Color(0xffC4F594),
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(150),
-                    bottomRight: Radius.circular(150))),
+              color: Color(0xffC4F594),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(150),
+                bottomRight: Radius.circular(150),
+              ),
+            ),
             height: 350,
             width: double.infinity,
             child: Container(
               margin: const EdgeInsets.only(bottom: 170, right: 330),
-              child: GestureDetector(
-                onTap: () {
+              child: TextButton(
+                onPressed: () {
                   Navigator.pop(context);
                 },
-                child: const Icon(Icons.arrow_back_ios),
+                child: const Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.black,
+                ),
               ),
             ),
           ),
@@ -83,10 +88,36 @@ class _DeskripsiState extends State<Deskripsi> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 450, left: 170),
-                    child: const Text(
-                      "Apple",
-                      style: TextStyle(fontSize: 30),
+                    margin: const EdgeInsets.only(top: 455, left: 100),
+                    child: Row(
+                      children: [
+                        MaterialButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          color: const Color(0xffAEDC81),
+                          minWidth: 5,
+                          onPressed: () {},
+                          child: const Icon(Icons.remove),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          "1 Kg",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        MaterialButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0)),
+                          minWidth: 5,
+                          color: const Color(0xffAEDC81),
+                          onPressed: () {},
+                          child: const Icon(Icons.add),
+                        ),
+                      ],
                     ),
                   ),
                 ],
