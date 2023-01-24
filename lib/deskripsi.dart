@@ -3,7 +3,18 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Deskripsi extends StatefulWidget {
-  const Deskripsi({super.key});
+  Deskripsi({
+    super.key,
+    required this.gambar,
+    required this.harga,
+    required this.nama,
+    required this.desk,
+  });
+
+  String gambar;
+  String harga;
+  String nama;
+  String desk;
 
   @override
   State<Deskripsi> createState() => _DeskripsiState();
@@ -67,11 +78,14 @@ class _DeskripsiState extends State<Deskripsi> {
           ),
           Stack(
             children: [
-              Positioned(
-                top: 85,
-                child: Image.asset(
-                  "assets/apelds.png",
-                  scale: 0.9,
+              Container(
+                margin: const EdgeInsets.only(top: 70),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Image.asset(
+                    widget.gambar,
+                    scale: 0.4,
+                  ),
                 ),
               ),
             ],
@@ -81,14 +95,14 @@ class _DeskripsiState extends State<Deskripsi> {
               Row(
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 450, left: 40),
-                    child: const Text(
-                      "Apple",
-                      style: TextStyle(fontSize: 30),
+                    margin: const EdgeInsets.only(top: 380, left: 40),
+                    child: Text(
+                      widget.nama,
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 455, left: 100),
+                    margin: const EdgeInsets.only(top: 380, left: 100),
                     child: Row(
                       children: [
                         MaterialButton(
@@ -173,9 +187,9 @@ class _DeskripsiState extends State<Deskripsi> {
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 25),
-                      child: const Text(
-                        "Rp.15.000 ",
-                        style: TextStyle(
+                      child: Text(
+                        'Rp${widget.harga}',
+                        style: const TextStyle(
                             color: Color(0xff86C649),
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
@@ -187,8 +201,8 @@ class _DeskripsiState extends State<Deskripsi> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                  children: const [
-                    Padding(
+                  children: [
+                    const Padding(
                       padding: EdgeInsets.only(right: 230, top: 5),
                       child: Text(
                         "Descriptions",
@@ -197,10 +211,11 @@ class _DeskripsiState extends State<Deskripsi> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 5, left: 30, right: 20),
+                      padding:
+                          const EdgeInsets.only(top: 5, left: 30, right: 20),
                       child: Text(
-                        "Apple Mountain works as a seller for many apple growers of apple. apple are easy to spot in your produce aisle. They are just like regular apple, but they will usually have a few more scars on  ReadMore",
-                        style: TextStyle(fontSize: 17),
+                        widget.desk,
+                        style: const TextStyle(fontSize: 17),
                       ),
                     ),
                   ],
