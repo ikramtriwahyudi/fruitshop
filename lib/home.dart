@@ -1,7 +1,7 @@
-import 'dart:developer';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitmarket/deskripsi.dart';
+import 'package:fruitmarket/profil.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -115,9 +115,18 @@ class _HomepageState extends State<Homepage> {
                       const SizedBox(
                         width: 100,
                       ),
-                      const Icon(
-                        Icons.account_circle,
-                        size: 30,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Profil(),
+                              ));
+                        },
+                        child: const Icon(
+                          Icons.account_circle,
+                          size: 30,
+                        ),
                       )
                     ],
                   ),
@@ -225,46 +234,46 @@ class _HomepageState extends State<Homepage> {
                     ],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 260, top: 10),
-                  child: Text(
-                    "Categories",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      for (int index = 0; index < buah.length; index++)
-                        Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                log('Tekan');
-                              },
-                              child: Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 18),
-                                height: 40,
-                                width: 40,
-                                color: Colors.amber,
-                                child: Image.asset(buah[index]['image']),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(buah[index]['lable']),
-                          ],
-                        ),
-                    ],
-                  ),
-                ),
+                // const Padding(
+                //   padding: EdgeInsets.only(right: 260, top: 10),
+                //   child: Text(
+                //     "Categories",
+                //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 30,
+                // ),
+                // SingleChildScrollView(
+                //   scrollDirection: Axis.horizontal,
+                //   child: Row(
+                //     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //     children: [
+                //       for (int index = 0; index < buah.length; index++)
+                //         Column(
+                //           children: [
+                //             GestureDetector(
+                //               onTap: () {
+                //                 log('Tekan');
+                //               },
+                //               child: Container(
+                //                 margin:
+                //                     const EdgeInsets.symmetric(horizontal: 18),
+                //                 height: 40,
+                //                 width: 40,
+                //                 color: Colors.amber,
+                //                 child: Image.asset(buah[index]['image']),
+                //               ),
+                //             ),
+                //             const SizedBox(
+                //               height: 10,
+                // //             ),
+                //             Text(buah[index]['lable']),
+                //           ],
+                //         ),
+                //     ],
+                //   ),
+                // ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -276,7 +285,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 SizedBox(
-                  height: 290,
+                  height: 420,
                   child: GridView.count(
                     shrinkWrap: false,
                     crossAxisCount: 2,
