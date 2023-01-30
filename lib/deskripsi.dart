@@ -176,7 +176,7 @@ class _DeskripsiState extends State<Deskripsi> {
                               color: Colors.amber,
                             ),
                             onRatingUpdate: (rating) {
-                              print(rating);
+                              (rating);
                             },
                           ),
                         ],

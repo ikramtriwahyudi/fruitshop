@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Profil extends StatefulWidget {
-  const Profil({super.key});
+  Profil({super.key});
 
   @override
   State<Profil> createState() => _ProfilState();
@@ -48,8 +48,21 @@ class _ProfilState extends State<Profil> {
           const SizedBox(
             height: 10,
           ),
-          Container(
-            child: Column(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Text(
+                "Settings",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              // ListView(
+              //   children: [
+              //     ListTile(
+              //       title: Text("data"),
+              //     )
+              //   ],
+              // ),
+            ],
           )
         ],
       ),
