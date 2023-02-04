@@ -1,6 +1,7 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitmarket/deskripsi.dart';
+import 'package:fruitmarket/gas.dart';
 import 'package:fruitmarket/profil.dart';
 
 class Homepage extends StatefulWidget {
@@ -71,10 +72,7 @@ class _HomepageState extends State<Homepage> {
                     icon: const Icon(Icons.home),
                   ),
                   CustomNavigationBarItem(
-                    icon: const Icon(Icons.shopping_cart),
-                  ),
-                  CustomNavigationBarItem(
-                    icon: const Icon(Icons.lightbulb_outline),
+                    icon: const Icon(Icons.add_shopping_cart_outlined),
                   ),
                   CustomNavigationBarItem(
                     icon: const Icon(Icons.search),
@@ -223,7 +221,14 @@ class _HomepageState extends State<Homepage> {
                             minWidth: 20,
                             height: 35,
                             color: const Color(0xffF55959),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: ((context) => Gas()),
+                                ),
+                              );
+                            },
                             child: const Text(
                               "Order Now",
                               style: TextStyle(color: Colors.white),
