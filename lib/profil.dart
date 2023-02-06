@@ -42,12 +42,14 @@ class _ProfilState extends State<Profil> {
       body: Column(
         children: [
           Container(
-              margin: const EdgeInsets.only(top: 90, right: 290),
-              child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(Icons.arrow_back_ios))),
+            margin: const EdgeInsets.only(top: 90, right: 290),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back_ios),
+            ),
+          ),
           const SizedBox(
             height: 20,
           ),
@@ -101,7 +103,6 @@ class _ProfilState extends State<Profil> {
                         )
                       ]),
                   height: 50,
-                  width: 100,
                   child: Center(
                       child: Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
