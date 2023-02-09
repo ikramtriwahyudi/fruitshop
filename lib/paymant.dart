@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruitmarket/orderconfir.dart';
 
 class Payment extends StatefulWidget {
   const Payment({super.key});
@@ -200,7 +201,13 @@ class _PaymentState extends State<Payment> {
             minWidth: 345,
             height: 45,
             color: const Color(0xff82CD47),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Orderconfir(),
+                  ));
+            },
             child: const Text(
               "Pay Now",
               style: TextStyle(
