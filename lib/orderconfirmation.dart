@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruitmarket/data.dart';
+import 'package:fruitmarket/paymant.dart';
 import 'package:fruitmarket/profil.dart';
 
 class OrderConfirmation extends StatefulWidget {
@@ -134,7 +135,13 @@ class _OrderConfirmationState extends State<OrderConfirmation> {
             minWidth: 385,
             height: 45,
             color: const Color(0xff82CD47),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Payment(),
+                  ));
+            },
             child: const Text(
               "Confirm",
               style: TextStyle(

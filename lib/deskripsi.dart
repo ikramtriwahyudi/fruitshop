@@ -3,6 +3,7 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fruitmarket/data.dart';
 import 'package:fruitmarket/mycart.dart';
+import 'package:fruitmarket/orderconfirmation.dart';
 
 class Deskripsi extends StatefulWidget {
   Deskripsi({
@@ -240,7 +241,13 @@ class _DeskripsiState extends State<Deskripsi> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
                 minWidth: 160,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const OrderConfirmation(),
+                      ));
+                },
                 child: const Text(
                   "Buy Now",
                   style: TextStyle(color: Colors.white, fontSize: 20),
