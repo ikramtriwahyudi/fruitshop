@@ -2,9 +2,8 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitmarket/data.dart';
 import 'package:fruitmarket/deskripsi.dart';
-import 'package:fruitmarket/gas.dart';
+
 import 'package:fruitmarket/profil.dart';
-import 'package:fruitmarket/mycart.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -77,7 +76,7 @@ class _HomepageState extends State<Homepage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Profil(),
+                                builder: (context) => const Profil(),
                               ));
                         },
                         child: const Icon(
@@ -180,14 +179,7 @@ class _HomepageState extends State<Homepage> {
                             minWidth: 20,
                             height: 35,
                             color: const Color(0xffF55959),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: ((context) => Gas()),
-                                ),
-                              );
-                            },
+                            onPressed: () {},
                             child: const Text(
                               "Order Now",
                               style: TextStyle(color: Colors.white),

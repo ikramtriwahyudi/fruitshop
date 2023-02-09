@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruitmarket/data.dart';
 import 'package:fruitmarket/paymant.dart';
-import 'package:fruitmarket/profil.dart';
 
 class OrderConfirmation extends StatefulWidget {
   const OrderConfirmation({super.key});
@@ -52,14 +50,14 @@ class _OrderConfirmationState extends State<OrderConfirmation> {
       ),
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           const Text(
             "Your details",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           ListView.builder(
@@ -96,7 +94,7 @@ class _OrderConfirmationState extends State<OrderConfirmation> {
             "About order",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           ListView.builder(
@@ -139,7 +137,7 @@ class _OrderConfirmationState extends State<OrderConfirmation> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Payment(),
+                    builder: (context) => const Payment(),
                   ));
             },
             child: const Text(

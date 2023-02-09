@@ -76,7 +76,7 @@ class _MyCartState extends State<MyCart> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => OrderConfirmation(),
+                    builder: (context) => const OrderConfirmation(),
                   ));
             },
             child: const Text(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 
 class Profil extends StatefulWidget {
-  Profil({super.key});
+  const Profil({super.key});
 
   @override
   State<Profil> createState() => _ProfilState();
@@ -95,7 +95,7 @@ class _ProfilState extends State<Profil> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.white,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Colors.grey,
                           blurRadius: 20,
@@ -120,7 +120,7 @@ class _ProfilState extends State<Profil> {
             }),
             itemCount: nama.length,
           ),
-          SizedBox(
+          const SizedBox(
             height: 18,
           ),
           CustomNavigationBar(

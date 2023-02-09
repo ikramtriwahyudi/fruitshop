@@ -45,56 +45,53 @@ List grid = [
 
 List plus = [
   {
-    'plus': Container(
-      // margin: const EdgeInsets.only(top: 380, left: 100),
-      child: Row(
-        children: [
-          SizedBox(
-            width: 50,
-            height: 50,
-            child: MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              color: const Color(0xffAEDC81),
-              minWidth: 5,
-              onPressed: () {},
-              child: Center(
-                child: const Icon(
-                  Icons.remove,
-                  size: 15,
-                ),
+    'plus': Row(
+      children: [
+        SizedBox(
+          width: 50,
+          height: 50,
+          child: MaterialButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            color: const Color(0xffAEDC81),
+            minWidth: 5,
+            onPressed: () {},
+            child: const Center(
+              child: Icon(
+                Icons.remove,
+                size: 15,
               ),
             ),
           ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Text(
-            "1 Kg",
-            style: TextStyle(fontSize: 15),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          SizedBox(
-            width: 50,
-            height: 50,
-            child: MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0)),
-              minWidth: 5,
-              color: const Color(0xffAEDC81),
-              onPressed: () {},
-              child: Center(
-                child: const Icon(
-                  Icons.add,
-                  size: 15,
-                ),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        const Text(
+          "1 Kg",
+          style: TextStyle(fontSize: 15),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        SizedBox(
+          width: 50,
+          height: 50,
+          child: MaterialButton(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            minWidth: 5,
+            color: const Color(0xffAEDC81),
+            onPressed: () {},
+            child: const Center(
+              child: Icon(
+                Icons.add,
+                size: 15,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     ),
   }
 ];

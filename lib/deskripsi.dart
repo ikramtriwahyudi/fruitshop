@@ -96,13 +96,11 @@ class _DeskripsiState extends State<Deskripsi> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 40, top: 20),
-                  child: Text(
-                    widget.nama,
-                    style: const TextStyle(fontSize: 30),
-                  ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, top: 20),
+                child: Text(
+                  widget.nama,
+                  style: const TextStyle(fontSize: 30),
                 ),
               ),
               //disini*/
@@ -211,7 +209,7 @@ class _DeskripsiState extends State<Deskripsi> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MyCart(),
+                            builder: (context) => const MyCart(),
                           ));
                     },
                     child: Row(
