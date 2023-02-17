@@ -68,7 +68,7 @@ List plus = [
           width: 10,
         ),
         const Text(
-          "1 Kg",
+          "1kg",
           style: TextStyle(fontSize: 15),
         ),
         const SizedBox(

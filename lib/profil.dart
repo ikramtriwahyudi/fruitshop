@@ -57,7 +57,7 @@ class _ProfilState extends State<Profil> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(400.0),
               child: Image.asset(
-                "assets/foto1.JPG",
+                "assets/gojo.png",
                 width: 150,
                 height: 150,
                 fit: BoxFit.cover,
@@ -68,7 +68,7 @@ class _ProfilState extends State<Profil> {
             height: 5,
           ),
           const Text(
-            "Ikram triwahyudi",
+            "Ikramee",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
           ),
           const Text(

@@ -46,7 +46,7 @@ class _PaymentState extends State<Payment> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         "Amount pay",
                         style: TextStyle(fontSize: 20),
@@ -60,12 +60,12 @@ class _PaymentState extends State<Payment> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 70,
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Detail",
                       style: TextStyle(fontSize: 20, color: Color(0xff6CC51D)),
                     ),
@@ -97,17 +97,17 @@ class _PaymentState extends State<Payment> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.card_giftcard_outlined,
                     size: 40,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         "Master card",
                         style: TextStyle(fontSize: 20),
@@ -121,12 +121,12 @@ class _PaymentState extends State<Payment> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         "Detail",
                         style:
                             TextStyle(fontSize: 20, color: Color(0xff6CC51D)),
@@ -205,7 +205,7 @@ class _PaymentState extends State<Payment> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Orderconfir(),
+                    builder: (context) => const Orderconfir(),
                   ));
             },
             child: const Text(

@@ -37,7 +37,7 @@ class _TrackorderState extends State<Trackorder> {
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: Text("Order Status Detail"),
+        title: const Text("Order Status Detail"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -63,7 +63,7 @@ class _TrackorderState extends State<Trackorder> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Homepage(),
+                    builder: (context) => const Homepage(),
                   ),
                 );
               },

@@ -24,6 +24,23 @@ class Deskripsi extends StatefulWidget {
 }
 
 class _DeskripsiState extends State<Deskripsi> {
+  int hitung = 0;
+
+  void increment() {
+    setState(() {
+      hitung++;
+    });
+  }
+
+  void decrement() {
+    if (hitung < 1) {
+      return;
+    }
+    setState(() {
+      hitung--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +123,54 @@ class _DeskripsiState extends State<Deskripsi> {
               //disini*/
               Container(
                 padding: const EdgeInsets.only(top: 20, right: 40),
-                child: plus[0]["plus"],
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: MaterialButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        color: const Color(0xffAEDC81),
+                        minWidth: 5,
+                        onPressed: decrement,
+                        child: const Center(
+                          child: Icon(
+                            Icons.remove,
+                            size: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "$hitung kg",
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: MaterialButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        minWidth: 5,
+                        color: const Color(0xffAEDC81),
+                        onPressed: increment,
+                        child: const Center(
+                          child: Icon(
+                            Icons.add,
+                            size: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               )
             ],
           ),
