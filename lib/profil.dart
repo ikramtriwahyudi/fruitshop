@@ -123,23 +123,6 @@ class _ProfilState extends State<Profil> {
           const SizedBox(
             height: 18,
           ),
-          CustomNavigationBar(
-            onTap: (value) {},
-            items: [
-              CustomNavigationBarItem(
-                icon: const Icon(Icons.home),
-              ),
-              CustomNavigationBarItem(
-                icon: const Icon(Icons.add_shopping_cart_outlined),
-              ),
-              CustomNavigationBarItem(
-                icon: const Icon(Icons.search),
-              ),
-              CustomNavigationBarItem(
-                icon: const Icon(Icons.account_circle),
-              ),
-            ],
-          ),
         ],
       ),
     );

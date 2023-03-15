@@ -12,6 +12,14 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
+int _currentindex = 0;
+
+// final List tabs = [
+//   {
+
+//   }
+// ];
+
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
@@ -20,26 +28,38 @@ class _HomepageState extends State<Homepage> {
         children: [
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 80,
-              color: Colors.transparent,
-              child: CustomNavigationBar(
-                onTap: (value) {},
-                items: [
-                  CustomNavigationBarItem(
-                    icon: const Icon(Icons.home),
+            child: CustomNavigationBar(
+              elevation: 0,
+              backgroundColor: Colors.white,
+              currentIndex: _currentindex,
+              onTap: (index) {
+                setState(() {
+                  _currentindex = index;
+                });
+              },
+              items: [
+                CustomNavigationBarItem(
+                  icon: const Icon(
+                    Icons.home_sharp,
+                    color: Color(0xff86C649),
                   ),
-                  CustomNavigationBarItem(
-                    icon: const Icon(Icons.add_shopping_cart_outlined),
+                  title: const Text("Home"),
+                ),
+                CustomNavigationBarItem(
+                  icon: const Icon(
+                    Icons.shopping_cart,
+                    color: Color(0xff86C649),
                   ),
-                  CustomNavigationBarItem(
-                    icon: const Icon(Icons.search),
+                  title: const Text("My Cart"),
+                ),
+                CustomNavigationBarItem(
+                  icon: const Icon(
+                    Icons.person_pin,
+                    color: Color(0xff86C649),
                   ),
-                  CustomNavigationBarItem(
-                    icon: const Icon(Icons.account_circle),
-                  ),
-                ],
-              ),
+                  title: const Text("Profile"),
+                ),
+              ],
             ),
           ),
           SingleChildScrollView(
