@@ -1,21 +1,20 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:fruitmarket/data.dart';
+import 'package:fruitmarket/model/productdetail.dart';
 import 'package:fruitmarket/mycart.dart';
 import 'package:fruitmarket/orderconfirmation.dart';
+import 'package:http/http.dart' as http;
 
 class Deskripsi extends StatefulWidget {
   Deskripsi({
     super.key,
-    required this.gambar,
-    required this.harga,
     required this.nama,
     required this.desk,
   });
 
-  String gambar;
-  String harga;
   String nama;
   String desk;
 
@@ -24,12 +23,37 @@ class Deskripsi extends StatefulWidget {
 }
 
 class _DeskripsiState extends State<Deskripsi> {
+  item1? productdetail1;
+  // request data dari api
+  fetch() async {
+    final respon = await http.get(
+      // data dari url yaitu desk
+      Uri.parse('https://api.predic8.de${widget.desk}'),
+    );
+    log(respon.body.toString(), name: 'Response');
+    final product = item1.fromJson(
+      jsonDecode(respon.body),
+    );
+    log(product.toString(), name: 'Jadi Product');
+    productdetail1 = product;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetch();
+  }
+
   int hitung = 0;
 
   void increment() {
-    setState(() {
-      hitung++;
-    });
+    setState(
+      () {
+        hitung++;
+      },
+    );
   }
 
   void decrement() {
@@ -48,33 +72,6 @@ class _DeskripsiState extends State<Deskripsi> {
         children: [
           Stack(
             children: [
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 80,
-                  color: Colors.transparent,
-                  child: CustomNavigationBar(
-                    onTap: (value) {},
-                    items: [
-                      CustomNavigationBarItem(
-                        icon: const Icon(Icons.home),
-                      ),
-                      CustomNavigationBarItem(
-                        icon: const Icon(Icons.shopping_cart),
-                      ),
-                      CustomNavigationBarItem(
-                        icon: const Icon(Icons.lightbulb_outline),
-                      ),
-                      CustomNavigationBarItem(
-                        icon: const Icon(Icons.search),
-                      ),
-                      CustomNavigationBarItem(
-                        icon: const Icon(Icons.account_circle),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               Container(
                 decoration: const BoxDecoration(
                   color: Color(0xffC4F594),
@@ -98,14 +95,11 @@ class _DeskripsiState extends State<Deskripsi> {
                   ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 70),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Image.asset(
-                    widget.gambar,
-                    scale: 0.4,
-                  ),
+              Center(
+                heightFactor: 2,
+                child: Image.network(
+                  'https://api.predic8.de${productdetail1?.photoUrl}',
+                  scale: 2.5,
                 ),
               ),
             ],
@@ -116,6 +110,7 @@ class _DeskripsiState extends State<Deskripsi> {
               Padding(
                 padding: const EdgeInsets.only(left: 40, top: 20),
                 child: Text(
+                  // hasil data passing dari homepage
                   widget.nama,
                   style: const TextStyle(fontSize: 30),
                 ),
@@ -222,16 +217,16 @@ class _DeskripsiState extends State<Deskripsi> {
                 const SizedBox(
                   height: 5,
                 ),
-                Container(
-                  margin: const EdgeInsets.only(right: 25),
-                  child: Text(
-                    'Rp${widget.harga}',
-                    style: const TextStyle(
-                        color: Color(0xff86C649),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                ),
+                // Container(
+                //   margin: const EdgeInsets.only(right: 25),
+                //   child: Text(
+                //     'Rp${widget.harga}',
+                //     style: const TextStyle(
+                //         color: Color(0xff86C649),
+                //         fontWeight: FontWeight.bold,
+                //         fontSize: 20),
+                //   ),
+                // ),
               ],
             ),
           ),

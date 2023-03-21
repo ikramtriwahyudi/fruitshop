@@ -72,7 +72,7 @@ class _ProfilState extends State<Profil> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
           ),
           const Text(
-            "ikramtriwahyudi@gmail.com",
+            "gojo@gmail.com",
             style: TextStyle(fontSize: 15),
           ),
           const SizedBox(

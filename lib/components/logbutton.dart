@@ -17,7 +17,7 @@ class Logbutton extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Splash(),
+              builder: (context) => const Splash(),
             ));
       },
       child: const Text(

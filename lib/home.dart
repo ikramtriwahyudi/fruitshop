@@ -1,8 +1,12 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:fruitmarket/data.dart';
 import 'package:fruitmarket/deskripsi.dart';
-
+import 'package:fruitmarket/model/product.dart';
+import 'package:fruitmarket/mycart.dart';
+import 'package:http/http.dart' as http;
 import 'package:fruitmarket/profil.dart';
 
 class Homepage extends StatefulWidget {
@@ -14,13 +18,26 @@ class Homepage extends StatefulWidget {
 
 int _currentindex = 0;
 
-// final List tabs = [
-//   {
-
-//   }
-// ];
-
 class _HomepageState extends State<Homepage> {
+  Product? products1;
+
+  fetchProduct() async {
+    final respon = await http.get(
+      Uri.parse('https://api.predic8.de/shop/products/'),
+    );
+    final product = Product.fromJson(
+      jsonDecode(respon.body),
+    );
+    products1 = product;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchProduct();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,16 +63,45 @@ class _HomepageState extends State<Homepage> {
                   title: const Text("Home"),
                 ),
                 CustomNavigationBarItem(
-                  icon: const Icon(
-                    Icons.shopping_cart,
-                    color: Color(0xff86C649),
+                  icon: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Homepage(),
+                          ));
+                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MyCart(),
+                          ),
+                        );
+                      },
+                      child: const Icon(
+                        Icons.shopping_cart,
+                        color: Color(0xff86C649),
+                      ),
+                    ),
                   ),
                   title: const Text("My Cart"),
                 ),
                 CustomNavigationBarItem(
-                  icon: const Icon(
-                    Icons.person_pin,
-                    color: Color(0xff86C649),
+                  icon: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Profil(),
+                        ),
+                      );
+                    },
+                    child: const Icon(
+                      Icons.person_pin,
+                      color: Color(0xff86C649),
+                    ),
                   ),
                   title: const Text("Profile"),
                 ),
@@ -210,53 +256,13 @@ class _HomepageState extends State<Homepage> {
                     ],
                   ),
                 ),
-                // const Padding(
-                //   padding: EdgeInsets.only(right: 260, top: 10),
-                //   child: Text(
-                //     "Categories",
-                //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 30,
-                // ),
-                // SingleChildScrollView(
-                //   scrollDirection: Axis.horizontal,
-                //   child: Row(
-                //     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //     children: [
-                //       for (int index = 0; index < buah.length; index++)
-                //         Column(
-                //           children: [
-                //             GestureDetector(
-                //               onTap: () {
-                //                 log('Tekan');
-                //               },
-                //               child: Container(
-                //                 margin:
-                //                     const EdgeInsets.symmetric(horizontal: 18),
-                //                 height: 40,
-                //                 width: 40,
-                //                 color: Colors.amber,
-                //                 child: Image.asset(buah[index]['image']),
-                //               ),
-                //             ),
-                //             const SizedBox(
-                //               height: 10,
-                // //             ),
-                //             Text(buah[index]['lable']),
-                //           ],
-                //         ),
-                //     ],
-                //   ),
-                // ),
                 const SizedBox(
                   height: 10,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(right: 185, top: 10),
                   child: Text(
-                    "Featured Products",
+                    'Feature Product',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -267,62 +273,39 @@ class _HomepageState extends State<Homepage> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 2,
-                    children: [
-                      for (int index1 = 0; index1 < grid.length; index1++)
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 10,
-                          ),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Deskripsi(
-                                      gambar: grid[index1]["image"],
-                                      harga: grid[index1]["Harga"],
-                                      nama: grid[index1]["Nama"],
-                                      desk: grid[index1]["Desk"],
-                                    ),
-                                  ));
-                            },
-                            child: Card(
-                              color: const Color.fromARGB(255, 247, 245, 245),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  // Row(
-                                  //   mainAxisAlignment: MainAxisAlignment.end,
-                                  //   children: [Icon(Icons.favorite)],
-                                  // ),
-                                  Image.asset(grid[index1]['image']),
-                                  // const SizedBox(
-                                  //   height: 10,
-                                  // ),
-                                  Text(
-                                    grid[index1]["Berat"],
-                                    style: const TextStyle(fontSize: 15),
-                                  ),
-                                  Text(
-                                    grid[index1]["Harga"],
-                                    style: const TextStyle(
-                                        color: Color(0xff86C649),
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    grid[index1]["Nama"],
-                                    style: const TextStyle(fontSize: 20),
-                                  ),
-                                ],
-                              ),
+                    children: products1!.products!.map((pro) {
+                      return Padding(
+                        padding: const EdgeInsets.only(
+                          left: 10,
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Deskripsi(
+                                      nama: pro.name.toString(),
+                                      desk: pro.productUrl.toString()),
+                                ));
+                          },
+                          child: Card(
+                            color: const Color.fromARGB(255, 247, 245, 245),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  pro.name.toString(),
+                                  style: const TextStyle(fontSize: 20),
+                                ),
+                              ],
                             ),
                           ),
-                        )
-                    ],
+                        ),
+                      );
+                    }).toList(),
                   ),
                 )
               ],
