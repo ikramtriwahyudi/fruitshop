@@ -273,39 +273,41 @@ class _HomepageState extends State<Homepage> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 2,
-                    children: products1!.products!.map((pro) {
-                      return Padding(
-                        padding: const EdgeInsets.only(
-                          left: 10,
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Deskripsi(
-                                      nama: pro.name.toString(),
-                                      desk: pro.productUrl.toString()),
-                                ));
-                          },
-                          child: Card(
-                            color: const Color.fromARGB(255, 247, 245, 245),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  pro.name.toString(),
-                                  style: const TextStyle(fontSize: 20),
-                                ),
-                              ],
+                    children: products1!.products!.map(
+                      (pro) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10,
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Deskripsi(
+                                        nama: pro.name.toString(),
+                                        desk: pro.productUrl.toString()),
+                                  ));
+                            },
+                            child: Card(
+                              color: const Color.fromARGB(255, 247, 245, 245),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    pro.name.toString(),
+                                    style: const TextStyle(fontSize: 20),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }).toList(),
+                        );
+                      },
+                    ).toList(),
                   ),
                 )
               ],
